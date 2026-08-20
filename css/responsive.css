@@ -1,0 +1,88 @@
+/* ===== Responsive Adjustments ===== */
+
+/* Small phones */
+@media (max-width: 360px) {
+  .title { font-size: 1.1rem; }
+  .action-btn {
+    width: 64px;
+    height: 64px;
+  }
+  .btn-icon { font-size: 1.6rem; }
+  .btn-label { font-size: 0.65rem; }
+  .cat-area { width: 90%; }
+  .mood-badge { width: 40px; height: 40px; font-size: 1.4rem; }
+}
+
+/* Larger phones / small tablets */
+@media (min-width: 480px) {
+  .action-btn {
+    width: 84px;
+    height: 84px;
+    border-radius: 22px;
+  }
+  .btn-icon { font-size: 2.2rem; }
+  .btn-label { font-size: 0.8rem; }
+  .title { font-size: 1.5rem; }
+  .floating-item { font-size: 4.2rem; }
+}
+
+/* Tablets */
+@media (min-width: 768px) {
+  .scene { max-height: 70vh; }
+  .cat-area { max-width: 420px; }
+  .actions {
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 24px 24px 0 0;
+  }
+  .action-btn {
+    width: 96px;
+    height: 96px;
+  }
+  .window { max-width: 180px; }
+  .plant { width: 90px; }
+}
+
+/* Landscape phones */
+@media (max-height: 500px) and (orientation: landscape) {
+  .header { padding: 6px 12px; }
+  .title { font-size: 1rem; }
+  .cat-area {
+    width: 45%;
+    margin-bottom: 8px;
+  }
+  .actions {
+    padding: 8px 10px 12px;
+  }
+  .action-btn {
+    width: 56px;
+    height: 56px;
+  }
+  .btn-label { display: none; }
+  .window, .plant { display: none; }
+  .mood-badge { top: 50px; width: 36px; height: 36px; font-size: 1.2rem; }
+}
+
+/* Very tall screens */
+@media (min-height: 800px) {
+  .cat-area { margin-bottom: 40px; }
+  .actions { padding-bottom: 40px; }
+}
+
+/* Touch-friendly larger hit areas on mobile */
+@media (hover: none) and (pointer: coarse) {
+  .action-btn {
+    min-width: 68px;
+    min-height: 68px;
+  }
+  .icon-btn {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+/* Prevent pull-to-refresh / overscroll */
+body {
+  overscroll-behavior: none;
+  touch-action: manipulation;
+}

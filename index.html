@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#87CEEB" />
+  <meta name="description" content="ঘুমকাতুরে বিড়াল - বাচ্চাদের জন্য cute interactive cat app" />
+  <title>ঘুমকাতুরে বিড়াল 🐱</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- Header -->
+    <header class="header">
+      <h1 class="title">🐱 ঘুমকাতুরে বিড়াল</h1>
+      <button id="settingsBtn" class="icon-btn" aria-label="Settings">⚙️</button>
+    </header>
+
+    <!-- Main Scene -->
+    <main class="scene" id="scene">
+      <!-- Background decorations -->
+      <div class="window">
+        <div class="window-frame"></div>
+        <div class="curtain left"></div>
+        <div class="curtain right"></div>
+      </div>
+      <div class="plant">
+        <div class="pot"></div>
+        <div class="leaves"></div>
+      </div>
+      <div class="paw-prints" id="pawPrints"></div>
+
+      <!-- Cat Container -->
+      <div class="cat-area" id="catArea">
+        <div class="cushion yellow"></div>
+        <div class="cushion purple" id="cushion">
+          <img src="assets/cat/sleeping-cat.png" alt="Sleeping Cat" id="catImg" class="cat-img" draggable="false" />
+          <!-- Overlay for expressions (CSS based) -->
+          <div class="cat-overlay" id="catOverlay"></div>
+        </div>
+        <!-- Zzz -->
+        <div class="zzz" id="zzz">
+          <span>z</span><span>z</span><span>z</span>
+        </div>
+      </div>
+
+      <!-- Floating objects (feather, fish, pillow) -->
+      <div id="floatingItem" class="floating-item hidden"></div>
+    </main>
+
+    <!-- Action Buttons -->
+    <nav class="actions" id="actions">
+      <button class="action-btn green" data-action="pet" aria-label="আদর">
+        <span class="btn-icon">🐾</span>
+        <span class="btn-label">আদর</span>
+      </button>
+      <button class="action-btn yellow" data-action="feather" aria-label="জাগাও">
+        <span class="btn-icon">🪶</span>
+        <span class="btn-label">জাগাও</span>
+      </button>
+      <button class="action-btn blue" data-action="feed" aria-label="খাওয়াও">
+        <span class="btn-icon">🐟</span>
+        <span class="btn-label">খাওয়াও</span>
+      </button>
+      <button class="action-btn pink" data-action="pillow" aria-label="বালিশ">
+        <span class="btn-icon">🛏️</span>
+        <span class="btn-label">বালিশ</span>
+      </button>
+    </nav>
+
+    <!-- Mood indicator (subtle) -->
+    <div class="mood-badge" id="moodBadge">😴</div>
+
+    <!-- Stats toast -->
+    <div class="toast" id="toast"></div>
+
+    <!-- Settings Panel -->
+    <div class="settings-panel hidden" id="settingsPanel">
+      <div class="settings-content">
+        <h2>সেটিংস</h2>
+        <label class="setting-row">
+          <span>🔊 সাউন্ড</span>
+          <input type="checkbox" id="soundToggle" checked />
+        </label>
+        <label class="setting-row">
+          <span>🎵 মিউজিক</span>
+          <input type="checkbox" id="musicToggle" />
+        </label>
+        <label class="setting-row">
+          <span>📳 ভাইব্রেশন</span>
+          <input type="checkbox" id="vibrateToggle" checked />
+        </label>
+        <label class="setting-row">
+          <span>🌙 নাইট মোড</span>
+          <input type="checkbox" id="nightToggle" />
+        </label>
+        <div class="stats-box">
+          <p>🐾 আদর: <span id="statTaps">0</span></p>
+          <p>🐟 মাছ: <span id="statFish">0</span></p>
+          <p>😂 রিঅ্যাকশন: <span id="statReactions">0</span></p>
+        </div>
+        <button id="closeSettings" class="close-btn">বন্ধ করো</button>
+      </div>
+    </div>
+
+    <!-- Achievement popup -->
+    <div class="achievement hidden" id="achievement">
+      <div class="ach-icon">🏆</div>
+      <div class="ach-text" id="achText"></div>
+    </div>
+  </div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/sounds.js"></script>
+  <script src="js/cat.js"></script>
+  <script src="js/interactions.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
