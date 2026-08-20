@@ -9,12 +9,41 @@ const Sounds = {
   musicOsc: null,
   musicGain: null,
 
+  // Real audio files (loaded once, cloned on play so overlapping calls don't cut each other off)
+  files: {
+    meow: 'assets/sounds/meow.mp3',
+    angry: 'assets/sounds/angry.mp3',
+    snore: 'assets/sounds/snore.mp3'
+  },
+  buffers: {},
+
   init() {
     try {
       this.ctx = new (window.AudioContext || window.webkitAudioContext)();
     } catch (e) {
       console.warn('Web Audio not supported');
     }
+    this.preloadFiles();
+  },
+
+  preloadFiles() {
+    Object.entries(this.files).forEach(([key, src]) => {
+      const audio = new Audio(src);
+      audio.preload = 'auto';
+      this.buffers[key] = audio;
+    });
+  },
+
+  // Play a preloaded real audio file. Clones the node so rapid repeat
+  // triggers don't stop/restart each other.
+  playFile(key, volume = 1) {
+    if (!this.enabled) return false;
+    const base = this.buffers[key];
+    if (!base) return false;
+    const node = base.cloneNode();
+    node.volume = volume;
+    node.play().catch(() => {}); // ignore autoplay-block errors
+    return true;
   },
 
   resume() {
@@ -34,8 +63,10 @@ const Sounds = {
     else this.stopMusic();
   },
 
-  // Soft meow (simple frequency sweep)
+  // Real meow sample
   meow() {
+    if (this.playFile('meow', 0.9)) return;
+    // Fallback: synthesized sweep if the file failed to load
     if (!this.enabled || !this.ctx) return;
     this.resume();
     const t = this.ctx.currentTime;
@@ -54,8 +85,10 @@ const Sounds = {
     osc.stop(t + 0.55);
   },
 
-  // Soft snore
+  // Real purring/snore sample
   snore() {
+    if (this.playFile('snore', 0.6)) return;
+    // Fallback: synthesized drone if the file failed to load
     if (!this.enabled || !this.ctx) return;
     this.resume();
     const t = this.ctx.currentTime;
@@ -170,8 +203,10 @@ const Sounds = {
     osc.stop(t + 0.4);
   },
 
-  // Angry short growl
+  // Real angry/hiss sample
   angry() {
+    if (this.playFile('angry', 0.8)) return;
+    // Fallback: synthesized growl if the file failed to load
     if (!this.enabled || !this.ctx) return;
     this.resume();
     const t = this.ctx.currentTime;
