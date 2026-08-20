@@ -1,0 +1,24 @@
+{
+  "name": "sleepy-cat-app",
+  "version": "1.0.0",
+  "description": "ঘুমকাতুরে বিড়াল - Kids interactive sleeping cat app",
+  "main": "index.html",
+  "scripts": {
+    "build": "echo 'Static web app - no build needed'",
+    "cap:sync": "npx cap sync",
+    "cap:open": "npx cap open android",
+    "cap:run": "npx cap run android"
+  },
+  "keywords": ["cat", "kids", "game", "pwa"],
+  "author": "SleepyCat",
+  "license": "MIT",
+  "dependencies": {
+    "@capacitor/android": "^6.1.2",
+    "@capacitor/core": "^6.1.2",
+    "@capacitor/cli": "^6.1.2",
+    "@capacitor/app": "^6.0.1",
+    "@capacitor/haptics": "^6.0.1",
+    "@capacitor/status-bar": "^6.0.1",
+    "@capacitor/splash-screen": "^6.0.2"
+  }
+}

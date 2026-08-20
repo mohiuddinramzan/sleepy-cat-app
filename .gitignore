@@ -1,0 +1,17 @@
+node_modules/
+package-lock.json
+android/
+.capacitor/
+*.apk
+*.aab
+*.keystore
+*.jks
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.log
+.env
+.env.local
+gh_token.txt
