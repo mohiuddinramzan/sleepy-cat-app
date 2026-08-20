@@ -1,7 +1,7 @@
 {
   "appId": "com.sleepycat.app",
   "appName": "ঘুমকাতুরে বিড়াল",
-  "webDir": ".",
+  "webDir": "www",
   "server": {
     "androidScheme": "https"
   },
