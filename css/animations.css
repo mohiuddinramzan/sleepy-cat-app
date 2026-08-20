@@ -2,7 +2,7 @@
 
 @keyframes breathe {
   0%, 100% { transform: scale(1) translateY(0); }
-  50% { transform: scale(1.02) translateY(-2px); }
+  50% { transform: scale(1.035) translateY(-6px); }
 }
 
 @keyframes earTwitch {
@@ -105,7 +105,7 @@
 /* ===== Applied Classes ===== */
 
 .cat-img.breathing {
-  animation: breathe 3.5s ease-in-out infinite;
+  animation: breathe 3s ease-in-out infinite;
 }
 
 .cat-img.twitch {

@@ -50,9 +50,6 @@ document.addEventListener('DOMContentLoaded', () => {
     Storage.update({ night: e.target.checked });
   });
 
-  // Decorative paw prints
-  createPawPrints();
-
   // Start breathing
   Cat.startBreathing();
 
@@ -84,27 +81,6 @@ function updateStatsUI() {
   document.getElementById('statTaps').textContent = data.taps;
   document.getElementById('statFish').textContent = data.fishEaten;
   document.getElementById('statReactions').textContent = data.reactions;
-}
-
-function createPawPrints() {
-  const container = document.getElementById('pawPrints');
-  const positions = [
-    { t: '12%', l: '70%' },
-    { t: '25%', l: '85%' },
-    { t: '40%', l: '75%' },
-    { t: '15%', l: '40%' },
-    { t: '55%', l: '10%' },
-    { t: '70%', l: '80%' }
-  ];
-  positions.forEach(p => {
-    const span = document.createElement('span');
-    span.className = 'paw-print';
-    span.textContent = '🐾';
-    span.style.top = p.t;
-    span.style.left = p.l;
-    span.style.transform = `rotate(${Math.random() * 40 - 20}deg)`;
-    container.appendChild(span);
-  });
 }
 
 // Simple vibration helper

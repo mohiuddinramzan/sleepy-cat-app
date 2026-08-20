@@ -77,7 +77,7 @@ const Cat = {
   // Idle random reactions every 5-15s
   startIdleLoop() {
     const loop = () => {
-      const delay = 5000 + Math.random() * 10000;
+      const delay = 3500 + Math.random() * 6000;
       setTimeout(() => {
         if (!this.isBusy && this.mood === 'sleepy') {
           this.randomIdleEvent();
